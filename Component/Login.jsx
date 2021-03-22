@@ -1,4 +1,6 @@
 import react, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
+
 import styles from '../styles/login.module.css'
 import Fire from './Fire';
 function Login() {
@@ -7,6 +9,8 @@ function Login() {
 	const [emailError, setEmailError] = useState('');
 	const [passwordError, setPasswordError] = useState('');
 	const [hasAccount, setHasAccount] = useState('');
+
+	const router = useRouter();
 
 	const clearInput = () => {
 		setEmail('');
@@ -25,6 +29,7 @@ function Login() {
 			.signInWithEmailAndPassword(email, password)
 			.then(creds => {
 				console.log(creds.user);
+				router.push('/profile');
 			})
 			.catch(err => {
 				switch (err.code) {
@@ -38,6 +43,7 @@ function Login() {
 						break;
 				}
 			});
+			
 	};
 
 	const handleLogout = () => {

@@ -1,5 +1,5 @@
-import firebase from 'firebase/app'
-
+import firebase from 'firebase/app';
+let firebaseInit;
 var firebaseConfig = {
     apiKey: "AIzaSyDjHiYKliTkZNeY4SQWeexBjoJC4n2RJuE",
     authDomain: "todoreactproject.firebaseapp.com",
@@ -8,6 +8,7 @@ var firebaseConfig = {
     messagingSenderId: "27858379354",
     appId: "1:27858379354:web:1ebe0f166e4d201196ae63"
   };
- 
-  const Fire = firebase.initializeApp(firebaseConfig);
-  export default Fire;
+ if(!firebase.apps.length){
+   firebaseInit = firebase.initializeApp(firebaseConfig);
+ }
+  export default firebaseInit;
