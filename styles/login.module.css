@@ -15,7 +15,7 @@
    background-color: #ecf0f3;
 
 } */
-.login-div {
+.login {
     width:430px;
     height: 700px;
     padding: 60px 35px 35px 35px;
@@ -75,7 +75,7 @@
     height: 22px;
     margin:0 10px -3px 25px;
   }
-  .signin-button {
+  .signinButton {
     outline: none;
     border:none;
     cursor: pointer;

@@ -1,8 +1,8 @@
 import react, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
-
+import 'firebase/auth'
 import styles from '../styles/login.module.css'
-import Fire from './Fire';
+import firebaseInit from './Fire';
 function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ function Login() {
 	const handleLogin = () => {
 		// console.log('login');
 		clearError();
-		Fire.auth()
+		firebaseInit.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then(creds => {
 				console.log(creds.user);
@@ -59,36 +59,36 @@ function Login() {
 
 	return (
 		<>
-			<div className="login-div">
+			<div className={styles.login}>
 				<div className="logo"></div>
 
-				<div className="title">Login</div>
-				<form>
-					<div className="fields">
-						<div className="username">
+				<div className={styles.title}>Login</div>
+				<form onSubmit={e =>e.preventDefault()}>
+					<div className={styles.fields}>
+						<div className={styles.username}>
 							<input
 								type="username"
-								className="user-input"
+								
 								placeholder="Email"
 								onChange={e => setEmail(e.target.value)}
 								value={email}
 							/>
 						</div>
-						<div className="password">
+						<div className={styles.password}>
 							<input
 								type="password"
-								className="pass-input"
+								
 								placeholder="password"
 								value={password}
 								onChange={e => setPassword(e.target.value)}
 							/>
 						</div>
 					</div>
-					<button className="signin-button" onClick={handleLogin}>
+					<button className={styles.signinButton} onClick={handleLogin}>
 						Login
 					</button>
 				</form>
-				<div className="link">
+				<div className={styles.link}>
 					<a href="#">Forgot password?</a>
 				</div>
 			</div>

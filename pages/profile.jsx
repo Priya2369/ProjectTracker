@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Button, Form, Container, Header } from 'semantic-ui-react'
-
+import { Button, Form,  Header } from 'semantic-ui-react'
+import styles from '../styles/profile.module.css'
 
 export default class Profile extends Component {
   constructor(props) {
@@ -31,9 +31,9 @@ export default class Profile extends Component {
   render() {
     const { name, age, salary, hobby } = this.state; 
     return (
-      <Container fluid className="container">
-        <Header as='h2'>React Google Sheets!</Header>
-        <Form className="form" onSubmit={this.submitHandler}>
+      <div fluid className={styles.container}>
+        <h2 className={styles.h2}>Track your project</h2>
+        <Form className={styles.form} onSubmit={this.submitHandler}>
           <Form.Field>
             <label>Name</label>
             <input placeholder='Enter your name' type="text" name = "name" value = {name} onChange={this.changeHandler}/>
@@ -51,9 +51,9 @@ export default class Profile extends Component {
             <input placeholder='Enter your hobby' type="text" name = "hobby" value = {hobby} onChange={this.changeHandler}/>
           </Form.Field>
           
-          <Button color="blue" type='submit'>Submit</Button>
+          <button color="blue" type='submit' className={styles.button}>Submit</button>
         </Form>
-      </Container>
+      </div>
     )
   }
 }

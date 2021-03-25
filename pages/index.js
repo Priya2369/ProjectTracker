@@ -6,8 +6,7 @@ export default function Home() {
   return (
     <>
     <Login/>
-    <h1>MoSahay</h1>
-    <h2>WE PUT PEOPLE BACK TO WORK</h2>
+   
     </>
   )
 }
